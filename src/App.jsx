@@ -1,10 +1,16 @@
 import "./App.css";
+import HomePage from "./components/Home/Homepage";
+import Navbar from "./components/Navbar/Navbar";
+import ProductsPage from "./components/Products/ProductsPage";
 
 const App = () => {
   return (
     <div className="app">
-      <nav>Navbar</nav>
-      <main>라우팅</main>
+      <Navbar />
+      <main>
+        <HomePage />
+        <ProductsPage />
+      </main>
     </div>
   );
 };
