@@ -22,11 +22,15 @@ const LoginPage = () => {
   //npm install react-hook-form 다운 후 아래 코드 사용
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const submitData = (formData) => console.log(formData);
+  const submitData = (formData) => {
+    console.log(formData);
+    reset();
+  };
 
   return (
     <section className="align_center form_page">
