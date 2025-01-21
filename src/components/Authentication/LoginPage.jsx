@@ -40,7 +40,13 @@ const LoginPage = () => {
           <div>
             <label htmlFor="email">Email</label>
             <input
-              {...register("email", { required: "이메일을 입력해주세요." })}
+              {...register("email", {
+                required: "이메일을 입력해주세요.",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "이메일 형식에 맞춰주세요.",
+                },
+              })}
               // onChange={(e) => setUser({ ...user, email: e.target.value })} //세트1
               {...register("email")}
               //세트1
