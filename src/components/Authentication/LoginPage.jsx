@@ -1,31 +1,46 @@
 import { useRef, useState } from "react";
 import "./LoginPage.css";
+import { useForm } from "react-hook-form";
 
 const LoginPage = () => {
+  //세트2
   // const passwordRef = useRef(null);
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(user); //서버로 로그인
-    setUser({ email: "", password: "" });
-  };
+  //세트1
+  // const [user, setUser] = useState({
+  //   email: "",
+  //   password: "",
+  // });
+
+  //세트1
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(user); //서버로 로그인
+  //   setUser({ email: "", password: "" });
+  // };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const submitData = (formData) => console.log(formData);
 
   return (
     <section className="align_center form_page">
-      <form onSubmit={handleSubmit} className="authentication_form">
+      <form onSubmit={handleSubmit(submitData)} className="authentication_form">
         <h2>로그인 폼</h2>
         <div className="form_inputs">
           <div>
             <label htmlFor="email">Email</label>
             <input
-              onChange={(e) => setUser({ ...user, email: e.target.value })}
-              value={user.email}
-              type="email"
-              id="email"
+              // onChange={(e) => setUser({ ...user, email: e.target.value })} //세트1
+              {...register("email")}
+              //세트1
+              // value={user.email}
+              // type="email"
+              // id="email"
               className="form_text_input"
               placeholder="이메일 입력..."
             />
@@ -33,15 +48,21 @@ const LoginPage = () => {
           <div>
             <label htmlFor="password">Password</label>
             <input
-              onChange={(e) => setUser({ ...user, password: e.target.value })}
-              value={user.password}
-              type="password"
+              // onChange={(e) => setUser({ ...user, password: e.target.value })} //세트1
+              {...register("password")}
+              //세트2
               // ref={passwordRef}
-              id="password"
+
+              //세트1
+              // value={user.password}
+              // type="password"
+              // id="password"
               className="form_text_input"
               placeholder="패스워드"
             />
-            {/* <button
+
+            {/* //세트2 
+              <button
               type="button"
               onClick={() => (passwordRef.current.type = "password")}
             >
