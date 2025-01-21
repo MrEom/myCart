@@ -19,6 +19,7 @@ const LoginPage = () => {
   //   setUser({ email: "", password: "" });
   // };
 
+  //npm install react-hook-form 다운 후 아래 코드 사용
   const {
     register,
     handleSubmit,
