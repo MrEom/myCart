@@ -6,6 +6,7 @@ import HomePage from "./components/Home/Homepage";
 import MyOrderPage from "./components/MyOrder/MyOrderPage";
 import Navbar from "./components/Navbar/Navbar";
 import ProductsPage from "./components/Products/ProductsPage";
+import Routing from "./components/Routing/Routing";
 import SingleProductPage from "./components/SingleProduct/SingleProductPage";
 
 const App = () => {
@@ -13,13 +14,7 @@ const App = () => {
     <div className="app">
       <Navbar />
       <main>
-        {/* <HomePage /> */}
-        {/* <ProductsPage /> */}
-        {/* <SingleProductPage /> */}
-        {/* <CartPage /> */}
-        {/* <MyOrderPage /> */}
-        {/* <LoginPage /> */}
-        <SignupPage />
+        <Routing />
       </main>
     </div>
   );
