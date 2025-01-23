@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import "./LoginPage.css";
 import { useForm } from "react-hook-form";
+import { login } from "../../services/userServices";
 
 const LoginPage = () => {
   //세트2
@@ -20,16 +21,21 @@ const LoginPage = () => {
   // };
 
   //npm install react-hook-form 다운 후 아래 코드 사용
+
+  const [formError, setFormError] = useState("");
   const {
     register,
-    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const submitData = (formData) => {
-    console.log(formData);
-    reset();
+  const submitData = async (formData) => {
+    try {
+      await login(formData);
+      window.location = "/"; //로그인 후 홈페이지로 이동
+    } catch (error) {
+      setFormError(error.response.data.message);
+    }
   };
 
   return (
@@ -96,7 +102,7 @@ const LoginPage = () => {
               비밀번호 보이게
             </button> */}
           </div>
-
+          {formError && <em className="form_error">{formError}</em>}
           <button type="submit" className="search_button form_submit">
             Submit
           </button>
