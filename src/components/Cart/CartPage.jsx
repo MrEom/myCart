@@ -5,10 +5,12 @@ import Table from "../Common/Table";
 import QuantityInput from "../SingleProduct/QuantityInput";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../../contexts/UserContext ";
+import CartContext from "../../contexts/CartContext";
 
-const CartPage = ({ cart }) => {
+const CartPage = () => {
   const [subTotal, setSubTotal] = useState(0);
   const user = useContext(UserContext); //userContext 로 UserContext 가져오기
+  const { cart, addToCart, removeFromCart } = useContext(CartContext);
 
   console.log(user);
 
@@ -51,6 +53,7 @@ const CartPage = ({ cart }) => {
                   src={remove}
                   alt="remove icon"
                   className="cart_remove_icon"
+                  onClick={() => removeFromCart(product._id)}
                 />
               </td>
             </tr>
