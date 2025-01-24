@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Routing from "./components/Routing/Routing";
 import { jwtDecode } from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
-import { addToCartAPI } from "./utils/cartServices";
+import { addToCartAPI, getCartAPI } from "./utils/cartServices";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -35,6 +35,20 @@ const App = () => {
       });
   };
 
+  const getCart = () => {
+    getCartAPI()
+      .then((res) => {
+        setCart(res.data);
+      })
+      .catch((err) => {
+        toast.error("카트 가져오기에 실패했습니다.");
+      });
+  };
+
+  useEffect(() => {
+    getCart();
+  }, [user]);
+
   useEffect(() => {
     try {
       const jwt = localStorage.getItem("token");
@@ -52,7 +66,7 @@ const App = () => {
       <Navbar user={user} cartCount={cart.length} />
       <main>
         <ToastContainer position="bottom-right" />
-        <Routing addToCart={addToCart} />
+        <Routing addToCart={addToCart} cart={cart} />
       </main>
     </div>
   );
