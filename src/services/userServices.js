@@ -18,3 +18,8 @@ export async function login(user) {
   const { data } = await apiClient.post("/user/login", user);
   localStorage.setItem("token", data.token);
 }
+
+//상품 삭제
+export function removeFromCartAPI(id) {
+  return apiClient.patch(`/cart/remove/${id}`);
+}
