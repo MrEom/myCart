@@ -3,10 +3,14 @@ import remove from "../../assets/remove.png";
 import user from "../../assets/user.webp";
 import Table from "../Common/Table";
 import QuantityInput from "../SingleProduct/QuantityInput";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import UserContext from "../../contexts/UserContext ";
 
 const CartPage = ({ cart }) => {
   const [subTotal, setSubTotal] = useState(0);
+  const user = useContext(UserContext); //userContext 로 UserContext 가져오기
+
+  console.log(user);
 
   useEffect(() => {
     let total = 0;
@@ -21,10 +25,14 @@ const CartPage = ({ cart }) => {
   return (
     <section className="align_center cart_page">
       <div className="align_center user_info">
-        <img src={user} alt="user profile" />
+        <img
+          src={`http://localhost:5000/profile/${user?.profilePic}`}
+          alt="user profile"
+        />
         <div>
-          <p className="user_name">Dooly</p>
-          <p className="user_email">dooly@naver.com</p>
+          <p className="user_name">{user?.name}</p>{" "}
+          {/*user?.name 의 ?는 이름이나 이메일이 없을 경우 오류 발생을 막아줄려고 사용 */}
+          <p className="user_email">{user?.email}</p>
         </div>
       </div>
 
