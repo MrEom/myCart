@@ -10,11 +10,11 @@ const QuantityInput = ({
   return (
     <>
       <button
-        onClick={() => {
+        onClick={() =>
           cartPage
             ? setQuantity("decrease", productId)
-            : setQuantity((prev) => prev - 1);
-        }}
+            : setQuantity((prev) => prev - 1)
+        }
         className="quantity_input_button"
         disabled={quantity <= 1}
       >
@@ -23,11 +23,11 @@ const QuantityInput = ({
       </button>
       <p className="quantity_input_count">{quantity}</p>
       <button
-        onClick={() => {
+        onClick={() =>
           cartPage
             ? setQuantity("increase", productId)
-            : setQuantity((prev) => prev + 1);
-        }}
+            : setQuantity((prev) => prev + 1)
+        }
         className="quantity_input_button"
         disabled={quantity >= stock}
       >

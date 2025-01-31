@@ -1,13 +1,13 @@
 import "./CartPage.css";
 import remove from "../../assets/remove.png";
-
+import user from "../../assets/user.webp";
 import QuantityInput from "../SingleProduct/QuantityInput";
 import Table from "../Common/Table";
 import { useContext, useEffect, useState } from "react";
+import UserContext from "../../contexts/UserContext";
 import CartContext from "../../contexts/CartContext";
 import { checkoutAPI } from "../../services/orderServices";
 import { toast } from "react-toastify";
-import UserContext from "../../contexts/UserContext";
 
 const CartPage = () => {
   //console.log(cart);

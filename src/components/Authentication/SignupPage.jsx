@@ -1,20 +1,19 @@
-import { useForm } from "react-hook-form";
-
 import "./SignupPage.css";
 import user from "../../assets/user.webp";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { signup } from "../../services/userServices";
 
 const SignupPage = () => {
   const [profilePic, setProfilePic] = useState(null);
   const [formError, setFormError] = useState("");
+  //console.log(profilePic);
   const {
     register,
     handleSubmit,
-    formState: { errors },
     watch,
+    formState: { errors },
   } = useForm();
-
   const submitData = async (formData) => {
     try {
       await signup(formData, profilePic);
@@ -22,9 +21,7 @@ const SignupPage = () => {
     } catch (error) {
       setFormError(error.response.data.message);
     }
-    return;
   };
-
   return (
     <section className="align_center form_page">
       <form
@@ -35,7 +32,10 @@ const SignupPage = () => {
 
         <div className="image_input_section">
           <div className="image_preview">
-            <img src={profilePic ? URL.createObjectURL(profilePic) : user} />
+            <img
+              src={profilePic ? URL.createObjectURL(profilePic) : user}
+              id="file-ip-1-preview"
+            />
           </div>
           <label htmlFor="file-ip-1" className="image_label">
             이미지 업로드
