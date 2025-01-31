@@ -1,7 +1,6 @@
-import React from "react";
-import ProductsSidebar from "./ProductsSidebar";
 import ProductsList from "./ProductsList";
 import "./ProductsPage.css";
+import ProductsSidebar from "./ProductsSidebar";
 
 const ProductsPage = () => {
   return (

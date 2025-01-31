@@ -4,10 +4,10 @@ import HomePage from "../Home/Homepage";
 import ProductsPage from "../Products/ProductsPage";
 import SingleProductPage from "../SingleProduct/SingleProductPage";
 import CartPage from "../Cart/CartPage";
-import MyOrderPage from "../MyOrder/MyOrderPage";
 import LoginPage from "../Authentication/LoginPage";
 import SignupPage from "../Authentication/SignupPage";
 import Logout from "../Authentication/Logout";
+import MyOrderPage from "../MyOrder/MyOrderPage";
 
 const Routing = () => {
   return (
